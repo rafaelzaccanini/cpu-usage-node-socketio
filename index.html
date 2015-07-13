@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Monitor CPU Usage</title>
+	<script src="/socket.io/socket.io.js"></script>
+	<script>		 
+		 var socket = io();
+		  
+		 socket.on('cpu_usage', function(msg){
+			document.getElementById('cpu_list').innerHTML = msg;
+		 });	
+	</script>
+  </head>
+  
+  <body>
+	CPU Usage (%):
+    <label id="cpu_list"></label>
+  </body>
+</html>
