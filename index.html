@@ -3,17 +3,29 @@
   <head>
     <title>Monitor CPU Usage</title>
 	<script src="/socket.io/socket.io.js"></script>
-	<script>		 
-		 var socket = io();
-		  
-		 socket.on('cpu_usage', function(msg){
-			document.getElementById('cpu_list').innerHTML = msg;
-		 });	
-	</script>
+	<script src="http://smoothiecharts.org/smoothie.js"></script> 
   </head>
   
   <body>
 	CPU Usage (%):
     <label id="cpu_list"></label>
+	<br />
+	<canvas id="chart" width="400" height="100"></canvas>
   </body>
+  
+  <script type="text/javascript">		 
+		 var socket = io();
+		 var sequence = new TimeSeries();
+		 	 
+		 socket.on('cpu_usage', function(msg){
+			document.getElementById('cpu_list').innerHTML = msg;
+			sequence.append(new Date().getTime(), msg);
+		 });
+		 
+		var chart = new SmoothieChart();
+		chart.addTimeSeries(sequence);
+		chart.streamTo(document.getElementById('chart'), 500);
+		 
+	</script>
+  
 </html>
