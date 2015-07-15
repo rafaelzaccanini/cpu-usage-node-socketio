@@ -1,16 +1,15 @@
 <!doctype html>
 <html>
   <head>
-    <title>Monitor CPU Usage</title>
+    <title>CPU Usage</title>
 	<script src="/socket.io/socket.io.js"></script>
 	<script src="http://smoothiecharts.org/smoothie.js"></script> 
   </head>
   
   <body>
-	CPU Usage (%):
-    <label id="cpu_list"></label>
+	CPU Usage: %<label id="cpu_list"></label>
 	<br />
-	<canvas id="chart" width="400" height="100"></canvas>
+	<canvas id="chart" width="500" height="100"></canvas>
   </body>
   
   <script type="text/javascript">		 
@@ -24,7 +23,7 @@
 		 
 		var chart = new SmoothieChart();
 		chart.addTimeSeries(sequence);
-		chart.streamTo(document.getElementById('chart'), 500);
+		chart.streamTo(document.getElementById('chart'), 1000);
 		 
 	</script>
   

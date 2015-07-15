@@ -1,17 +1,17 @@
 var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
-var os = require('os-utils');
-var interval = 500;
+var cpu = require('./cpu.js');
+var interval = 1000;
  
 app.get('/', function(req, res){
 	res.sendFile(__dirname + '/index.html');
 });
  
 setInterval(function(){
-	os.cpuUsage(function(usage){
-		 io.emit('cpu_usage', usage);	 
-	 });
+	cpu.getPercentageUsage(interval, function(percentage){
+		io.emit('cpu_usage', percentage);
+	});
 }, interval);
  
 http.listen(3500, function(){
