@@ -1,6 +1,6 @@
 var app = require('express')();
 var http = require('http').Server(app);
-var io = require('socket.io')(http, {'transports': ['websocket']});
+var io = require('socket.io')(http, {'transports': ['websocket', 'xhr-polling']});
 var cpu = require('./cpu.js');
 var interval = 1000;
 var port = process.env.PORT || 80;
