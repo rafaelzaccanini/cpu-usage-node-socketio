@@ -3,6 +3,10 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var cpu = require('./cpu.js');
 var interval = 1000;
+
+io.configure(function () {
+   io.set('transports', ['websocket','xhr-polling'])
+});
  
 app.get('/', function(req, res){
 	res.sendFile(__dirname + '/index.html');
