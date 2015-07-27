@@ -19,7 +19,7 @@ setInterval(function(){
 io.on('connect', function() { 
 	connectCounter++;
 	
-	io.emit('test', Object.keys(io.manager.open).length);
+	io.emit('test', io.manager.open);
 	
 	if(connectCounter == 7)
 	 	io.disconnect();
