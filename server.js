@@ -3,7 +3,7 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 //var cpu = require('./cpu.js');
 var interval = 1000;
-var port = 3500;
+var port = process.env.PORT || 80;
 
 // io.configure(function () {
 //    io.set('transports', ['websocket','xhr-polling'])
