@@ -16,17 +16,14 @@ setInterval(function(){
 	 });
 }, interval);
  
- io.sockets.on('connection', function(socket) {
-
-  socket.on('disconnect', function(reason) {
+io.on('connect', function(socket) {
     var o = Object.keys(socket.manager.open).length
       , c = Object.keys(socket.manager.closed).length
       , cA = Object.keys(socket.manager.closedA).length
       , h = Object.keys(socket.manager.handshaken).length
 
       io.emit('test', c);
-   });
-});
+ });
  
 // io.on('connect', function() { 
 // 	connectCounter++;
