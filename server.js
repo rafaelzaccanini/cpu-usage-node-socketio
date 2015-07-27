@@ -16,23 +16,14 @@ setInterval(function(){
 	 });
 }, interval);
  
-io.on('connect', function(socket) {
-    var o = Object.keys(socket.manager.open).length
-      , c = Object.keys(socket.manager.closed).length
-      , cA = Object.keys(socket.manager.closedA).length
-      , h = Object.keys(socket.manager.handshaken).length
-
-      io.emit('test', c);
- });
- 
-// io.on('connect', function() { 
-// 	connectCounter++;
-// 	
-// 	io.emit('test', Object.keys(socket.manager.closed).length);
-// 	
-// 	if(connectCounter == 7)
-// 	 	io.disconnect();
-// });
+io.on('connect', function() { 
+	connectCounter++;
+	
+	io.emit('test', Object.keys(io.manager.open).length);
+	
+	if(connectCounter == 7)
+	 	io.disconnect();
+});
  
 http.listen(port, function(){
   console.log('Listening');
