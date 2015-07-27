@@ -1,7 +1,7 @@
 var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
-var cpu = require('./cpu.js');
+//var cpu = require('./cpu.js');
 var interval = 1000;
 
 io.configure(function () {
