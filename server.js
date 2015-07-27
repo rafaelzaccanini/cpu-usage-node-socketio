@@ -24,6 +24,9 @@ app.get('/', function(req, res){
 });
  
 setInterval(function(){
+	
+	io.emit('test', io.sockets.manager.server.connections);
+	
 	 cpu.getPercentageUsage(interval, function(percentage){
 	 	io.emit('cpu_usage', percentage);
 	 });
