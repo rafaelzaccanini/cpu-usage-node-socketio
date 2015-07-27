@@ -9,9 +9,9 @@ var port = 3500;
 //    io.set('transports', ['websocket','xhr-polling'])
 // });
  
-// app.get('/', function(req, res){
-// 	res.sendFile(__dirname + '/index.html');
-// });
+app.get('/', function(req, res){
+	res.sendFile(__dirname + '/index.html');
+});
  
 setInterval(function(){
 	io.emit('cpu_usage', '500');
@@ -20,11 +20,11 @@ setInterval(function(){
 	// });
 }, interval);
  
-// http.listen(port, function(){
-//   console.log('Listening on *:3500');
-// });
+http.listen(port, function(){
+  console.log('Listening on *:3500');
+});
 
-http.createServer(function(req, res) {
-  res.writeHead(200, { 'Content-Type': 'text/plain' });
-  res.sendFile(__dirname + '/index.html');
-}).listen(port);
+// http.createServer(function(req, res) {
+//   res.writeHead(200, { 'Content-Type': 'text/plain' });
+//   res.sendFile(__dirname + '/index.html');
+// }).listen(port);
