@@ -9,7 +9,7 @@ var port = process.env.PORT || 80;
 //   io.set('transports', [ 'websocket' ]);  
 // });
 
-io.set('transports', [ 'xhr-polling', 'websocket' ]); 
+// io.set('transports', [ 'xhr-polling', 'websocket' ]); 
 
 app.get('/', function(req, res){
 	res.sendFile(__dirname + '/index.html');
