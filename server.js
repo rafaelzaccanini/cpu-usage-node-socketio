@@ -5,6 +5,10 @@ var cpu = require('./cpu.js');
 var interval = 1000;
 var port = process.env.PORT || 80;
 
+io.configure(function() {  
+     io.set('transports', [ 'websocket' ]);  
+});
+
 app.get('/', function(req, res){
 	res.sendFile(__dirname + '/index.html');
 });
