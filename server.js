@@ -6,7 +6,7 @@ var interval = 1000;
 var port = process.env.PORT || 80;
 
 io.on('connection', function () {
-  io.set('transports', [ 'websocket' ]);  
+  io.set('transports', [ 'websocket', 'xhr-polling' ]);  
 });
 
 // io.set('transports', [ 'xhr-polling', 'websocket' ]); 
