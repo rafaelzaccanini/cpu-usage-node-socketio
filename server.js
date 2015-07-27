@@ -3,6 +3,7 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 //var cpu = require('./cpu.js');
 var interval = 1000;
+var port = process.env.PORT || 3500;
 
 io.configure(function () {
    io.set('transports', ['websocket','xhr-polling'])
@@ -19,6 +20,6 @@ setInterval(function(){
 	// });
 }, interval);
  
-http.listen(3500, function(){
+http.listen(port, function(){
   console.log('Listening on *:3500');
 });
