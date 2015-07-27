@@ -13,9 +13,10 @@ app.get('/', function(req, res){
 });
  
 setInterval(function(){
-	cpu.getPercentageUsage(interval, function(percentage){
-		io.emit('cpu_usage', percentage);
-	});
+	io.emit('cpu_usage', '500');
+	// cpu.getPercentageUsage(interval, function(percentage){
+	// 	io.emit('cpu_usage', percentage);
+	// });
 }, interval);
  
 http.listen(3500, function(){
