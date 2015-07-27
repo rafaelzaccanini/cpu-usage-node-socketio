@@ -10,7 +10,6 @@ app.get('/', function(req, res){
 });
  
 setInterval(function(){
-	io.emit('cpu_usage', '500');
 	 cpu.getPercentageUsage(interval, function(percentage){
 	 	io.emit('cpu_usage', percentage);
 	 });
