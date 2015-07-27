@@ -18,6 +18,9 @@
 		 var sequence = new TimeSeries();
 		 	 
 		 socket.on('cpu_usage', function(msg){
+			 
+			 alert(socket.sockets.manager.server.connections);
+			 
 			document.getElementById('cpu_list').innerHTML = msg;
 			sequence.append(new Date().getTime(), msg);
 		 });
