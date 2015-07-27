@@ -1,13 +1,13 @@
 var app = require('express')();
 var http = require('http').Server(app);
-var io = require('socket.io')(http);
+var io = require('socket.io').listen(http);
 var cpu = require('./cpu.js');
 var interval = 1000;
 var port = process.env.PORT || 80;
 
-// io.on('connection', function () {
-//   io.set('transports', [ 'websocket' ]);  
-// });
+io.on('connection', function () {
+  io.set('transports', [ 'websocket' ]);  
+});
 
 // io.set('transports', [ 'xhr-polling', 'websocket' ]); 
 
